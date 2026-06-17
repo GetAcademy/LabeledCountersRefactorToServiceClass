@@ -19,7 +19,7 @@ namespace SimpleService
 
             ShowValidCounters(counters);
 
-            var selectedLetter = AskForLetter();
+            char selectedLetter = AskForLetter();
             var selectedIndex = selectedLetter - 'A';
             counters[selectedIndex]++;
 
