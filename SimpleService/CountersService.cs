@@ -1,4 +1,4 @@
-﻿using SimpleService.DomainServices;
+﻿using SimpleService.Core.DomainServices;
 
 namespace SimpleService
 {
@@ -35,7 +35,7 @@ namespace SimpleService
 
             for (var i = 0; i < counters.Length; i++)
             {
-                var letter = (char)('A' + i);
+                char letter = (char)('A' + i);
                 _console.Write(letter);
 
                 if (i < counters.Length - 1)
@@ -45,7 +45,7 @@ namespace SimpleService
             }
         }
 
-        public int AskForLetter()
+        public char AskForLetter()
         {
             _console.WriteLine();
             _console.Write("Trykk teller: ");

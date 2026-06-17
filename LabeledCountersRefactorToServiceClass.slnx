@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="NaiveVersion0/NaiveVersion0.csproj" />
+  <Project Path="SimpleService.Test/SimpleService.Test.csproj" />
   <Project Path="SimpleService/SimpleService.csproj" />
 </Solution>

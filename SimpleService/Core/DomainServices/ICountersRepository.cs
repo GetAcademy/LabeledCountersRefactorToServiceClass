@@ -1,4 +1,4 @@
-﻿namespace SimpleService.DomainServices
+﻿namespace SimpleService.Core.DomainServices
 {
     internal interface ICountersRepository
     {

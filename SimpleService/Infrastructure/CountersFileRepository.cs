@@ -1,11 +1,13 @@
-﻿namespace SimpleService
+﻿using SimpleService.Core.DomainServices;
+
+namespace SimpleService.Infrastructure
 {
-    internal class Helpers
+    internal class CountersFileRepository : ICountersRepository
     {
         const string filePath = "clicks.txt";
-        
 
-        public static int[] ReadCountersFromFile()
+
+        public int[] Load()
         {
             var lines = File.ReadAllLines(filePath);
             var counters = new int[lines.Length];
@@ -18,7 +20,7 @@
             return counters;
         }
 
-        public static void InitFile()
+        public void InitFile()
         {
             if (!File.Exists(filePath))
             {
@@ -27,7 +29,7 @@
 
         }
 
-        public static void WriteCountersToFile(int[] counters)
+        public void Save(int[] counters)
         {
             var updatedLines = new string[counters.Length];
 
@@ -39,15 +41,5 @@
             File.WriteAllLines(filePath, updatedLines);
         }
 
-       
-
-        public static void ShowMenu()
-        {
-            Console.WriteLine("Klikkteller");
-            Console.WriteLine("Hver linje i clicks.txt er én teller.");
-            Console.WriteLine("Linje 1 = A, linje 2 = B, linje 3 = C, osv.");
-            Console.WriteLine("Trykk Escape for å avslutte.");
-            Console.WriteLine();
-        }
     }
 }
