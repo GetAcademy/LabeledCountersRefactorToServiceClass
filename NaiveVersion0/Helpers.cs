@@ -55,7 +55,7 @@ namespace NaiveVersion0
             File.WriteAllLines(filePath, updatedLines);
         }
 
-        public static int AskForLetter()
+        public static char AskForLetter()
         {
             Console.WriteLine();
             Console.Write("Trykk teller: ");

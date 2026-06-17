@@ -37,7 +37,7 @@ namespace SimpleService.Test
             var output = new StringBuilder();
 
             repository.Setup(x => x.Load()).Returns(new[] { 1, 2, 3 });
-            console.Setup(x => x.ReadKey()).Returns('B');
+            console.Setup(x => x.ReadKey()).Returns('A');
             console.Setup(x => x.Write(It.IsAny<string>())).Callback<string>(s => output.Append(s));
             console.Setup(x => x.Write(It.IsAny<char>())).Callback<char>(c => output.Append(c));
             console.Setup(x => x.WriteLine(It.IsAny<string>())).Callback<string>(s => output.AppendLine(s));
@@ -46,8 +46,8 @@ namespace SimpleService.Test
 
             service.Run();
 
-            Assert.That(output.ToString(), Does.Contain("B: 3"));
-            Assert.That(output.ToString(), Does.Not.Contain("66: 3"));
+            Assert.That(output.ToString(), Does.Contain("A: 2"));
+            Assert.That(output.ToString(), Does.Not.Contain("65: 2"));
         }
     }
 }

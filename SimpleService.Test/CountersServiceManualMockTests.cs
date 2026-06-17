@@ -23,13 +23,13 @@ namespace SimpleService.Test
         public void Run_WritesSelectedLetterAsLetterNotNumberCode()
         {
             var repository = new CountersRepositoryMock(new[] { 1, 2, 3 });
-            var console = new ConsoleMock('B');
+            var console = new ConsoleMock('A');
             var service = new CountersService(repository, console);
 
             service.Run();
 
-            Assert.That(console.Output, Does.Contain("B: 3"));
-            Assert.That(console.Output, Does.Not.Contain("66: 3"));
+            Assert.That(console.Output, Does.Contain("A: 2"));
+            Assert.That(console.Output, Does.Not.Contain("65: 2"));
         }
 
         private sealed class CountersRepositoryMock : ICountersRepository
